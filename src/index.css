@@ -655,12 +655,6 @@ header {
   color: var(--clr-primary);
   text-shadow: 1px 1px 1px var(--clr-font);
 }
-
-.hero-info p {
-  margin: 1.5rem 0;
-  margin-top: 0.5rem;
-}
-
 .hero-btn-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -671,25 +665,27 @@ header {
 }
 
 .hero-btn {
-  align-self: center;
+  display: inline-flex; /* To align text and icons horizontally */
+  align-items: center; /* Center text and icons vertically */
+  justify-content: center; /* Center the content horizontally */
+  padding: 0.8rem 1.5rem; /* Adjust padding for better clickability */
   border: 2px solid var(--clr-primary);
-  transition: all 0.5s ease-out;
-}
-
-.hero-btn:last-child {
-  background: transparent;
-  color: var(--clr-primary);
+  border-radius: 5px; /* Add a rounded border */
+  text-decoration: none; /* Remove underline */
+  font-size: 1rem;
+  transition: all 0.3s ease-out;
 }
 
 .hero-btn:hover {
-  background: transparent;
-  color: var(--clr-primary);
+  background-color: var(--clr-primary); /* Change background on hover */
+  color: white; /* Change text color on hover */
 }
 
-.hero-btn:last-child:hover {
-  background: var(--clr-primary);
-  color: var(--clr-white);
+.hero-btn .fa {
+  margin-left: 0.5rem; /* Add space between text and icon */
 }
+
+
 
 #my-name {
   margin: 0 auto;
@@ -807,4 +803,299 @@ header {
   #my-name {
     margin: 0;
   }
+}
+
+
+
+
+.about-center {
+  display: grid;
+  gap: 2rem;
+}
+.about-img,
+.links-page-img {
+  margin: 0 auto;
+  max-width: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  padding: 0.1rem;
+  border: 3px solid var(--clr-primary);
+}
+.links-page-img {
+  min-height: 134.8px;
+}
+.about-image,
+.links-page-image {
+  border-radius: 50%;
+  width: 100%;
+  object-fit: contain;
+  width: 15rem;
+}
+
+.about-info {
+  text-align: center;
+}
+
+.about-info a {
+  color: var(--clr-primary);
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 992px) {
+  .about-center {
+    grid-template-columns: 30% 1fr;
+    align-items: center;
+    padding-left: 3rem;
+    column-gap: 4rem;
+  }
+  .about-info {
+    padding: 1.5rem 0 1.5rem 3rem;
+    max-width: 42rem;
+    justify-self: center;
+  }
+  .about-info p {
+    text-align: left;
+  }
+
+  .about-img {
+    display: block;
+    position: relative;
+    max-width: unset;
+  }
+  .about-image {
+    position: relative;
+    box-shadow: var(--light-shadow);
+    border-radius: 0.25rem;
+    object-fit: cover;
+  }
+}
+
+
+
+
+
+
+
+
+.skills-title-container {
+  position: relative;
+  margin: 2rem 0 1.5rem;
+}
+
+.skills-title {
+  display: inline-block;
+  background: var(--clr-body-bcg);
+  padding: 0 0.75rem;
+  margin-bottom: 0;
+}
+
+.skills-line {
+  height: 2px;
+  background: var(--clr-primary-gradient);
+  position: absolute;
+  width: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.skills-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem 0.75rem;
+}
+
+.skill-icon {
+  width: 2.5rem;
+  object-fit: contain;
+  height: 2.5rem;
+  transition: var(--transition);
+}
+.skill-icon:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+.contact {
+  text-align: center;
+  background: var(--contact-bcg);
+}
+.contact-info {
+  padding: 2rem;
+}
+.contact-info h2 {
+  text-shadow: 2px 2px 2px var(--clr-body-bcg);
+  margin-bottom: 1.5rem;
+}
+.contact-info p {
+  max-width: 35rem;
+}
+
+.social-icons {
+  background: #202020;
+}
+.social-icons h4 {
+  display: none;
+}
+.social-icons-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: var(--fixed-width);
+  padding: 0.8rem 0;
+  margin: 0 auto;
+  gap: 1rem;
+}
+.social-icon {
+  font-size: 2rem;
+  transition: var(--transition);
+  line-height: 1;
+  justify-self: center;
+}
+@media screen and (max-width: 792px) {
+  .social-icon {
+    line-height: 0;
+  }
+}
+.social-icon img {
+  transition: var(--transition);
+  vertical-align: middle;
+}
+.twitter {
+  color: #00a7e7;
+}
+.instagram {
+  color: #ea6960;
+}
+.linkedin {
+  color: #238fc8;
+}
+.youtube {
+  color: #fd3131;
+}
+.codepen {
+  color: #4ec3b8;
+}
+.github {
+  color: var(--clr-font);
+  background: var(--clr-body-bcg);
+  border-radius: 50%;
+}
+
+.social-icons-container span {
+  display: none;
+}
+.social-icon img {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+}
+
+@media screen and (min-width: 792px) {
+  .contact-center {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 3rem 2rem;
+    margin: 0 auto;
+    max-width: var(--max-width);
+    text-align: left;
+    gap: 2rem;
+  }
+  .social-icons {
+    background: transparent;
+    padding: 0 4rem;
+  }
+  .social-icons h4 {
+    display: block;
+    text-transform: none;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .social-icons-container {
+    display: grid;
+    /* grid-template-columns: 1fr; */
+    gap: 1rem 2rem;
+    width: max-content;
+  }
+  .social-icon {
+    justify-self: left;
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .social-icon:hover .fa {
+    color: var(--clr-font);
+  }
+  .social-icons-container span {
+    display: none;
+    color: var(--clr-font);
+    font-size: 1.25rem;
+    margin-left: 1rem;
+    text-transform: capitalize;
+    transition: var(--transition);
+  }
+  .social-icon:hover {
+    transform: scale(1.01);
+  }
+}
+
+
+
+/* 
+======================
+FOOTER
+======================
+*/
+
+.footer {
+  background: var(--clr-black);
+  text-align: center;
+  padding: 0 1rem;
+}
+.footer-text {
+  font-size: 1rem;
+  margin: 0.75rem;
+}
+@media screen and (min-width: 792px) {
+  .footer-text {
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+.footer p {
+  color: var(--clr-grey-9);
+  line-height: 1.25;
+  margin: 0.5rem 0;
+}
+
+.footer a {
+  transition: var(--transition);
+  color: var(--clr-grey-9);
+  text-decoration: underline;
+}
+.footer-img-block,
+.footer-text-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.footer a:hover {
+  color: var(--clr-secondary);
 }

@@ -4,7 +4,7 @@ import { FaCode, FaEnvelope } from "react-icons/fa";
 import { useAppContext } from "../../Context";
 
 export const Hero = () => {
-    const { smoothScroll  } = useAppContext();
+  const { smoothScroll } = useAppContext();
 
   return (
     <header id="home">
@@ -13,7 +13,7 @@ export const Hero = () => {
           {/* hero-info */}
           <article className="hero-info">
             <h1 id="my-name">
-              hey,<span> i'm  Abdullah </span>
+              hey,<span> i'm Abdullah </span>
             </h1>
             <p>
               I am a skilled Frontend Developer proficient in HTML, CSS,
