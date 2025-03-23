@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import { useAppContext } from '../../Context';
 
 const ToggleTheme: React.FC = () => {
   const [theme, setTheme] = useState(

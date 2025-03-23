@@ -1,4 +1,3 @@
-import React from 'react';
 import { skills } from '../../Data/data';
 
 export const Skills = () => {

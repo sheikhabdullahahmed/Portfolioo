@@ -1,4 +1,3 @@
-import React from 'react';
 import { socialIcons } from '../../Data/seoConfiq';
 
 const SocialIcons = () => {

@@ -1,4 +1,3 @@
-import React from "react";
 import heroImg from "../../Images/hero/hero-img.svg";
 import { FaCode, FaEnvelope } from "react-icons/fa";
 import { useAppContext } from "../../Context";

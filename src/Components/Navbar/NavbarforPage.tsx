@@ -1,4 +1,3 @@
-import React from 'react';
 import ToggleTheme from '../ToggleTheme/Toggle';
 import { useAppContext } from '../../Context';
 import Logo from '../Logo/Logo';

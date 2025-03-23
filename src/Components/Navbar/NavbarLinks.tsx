@@ -1,4 +1,3 @@
-import React from 'react';
 import { navLinks } from '../../Data/utiles'
 import { useAppContext } from '../../Context';
 

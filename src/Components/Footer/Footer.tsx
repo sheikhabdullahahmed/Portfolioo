@@ -1,4 +1,3 @@
-import React from 'react';
 import react from "../../Skills/react.svg";
 import logo from '../../Images/logo.png';
 
