@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, ReactNode, useContext } from 'react';
+import React, { createContext, useState,  ReactNode, useContext } from 'react';
 
 // Define context types
 interface AppContextType {
@@ -20,7 +20,7 @@ interface AppProviderProps {
 }
 
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [theme, setTheme] = useState<string>('light');
 
