@@ -1,0 +1,11 @@
+{
+    "builds": [
+      {
+        "src": "./",
+        "use": "@vercel/node",
+        "config": {
+          "includeFiles": ["vite.config.ts", "tsconfig.node.json"]
+        }
+      }
+    ]
+  }
