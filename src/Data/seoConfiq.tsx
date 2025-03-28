@@ -11,32 +11,32 @@ export const socialIcons = [
   {
     id: 1,
     icon: gmail,
-    url: 'mailto:48durgesh.chaudhary@gmail.com',
+    url: 'abdullahaheikh456677@gmail.com',
     title: 'Gmail',
   },
   {
     id: 2,
     icon: twitter,
-    url: 'https://twitter.com/yodkwtf',
+    url: 'https://twitter.com/sheikhabdullah',
     title: 'Twitter',
   },
 
   {
     id: 3,
     icon: youtube,
-    url: 'https://youtube.com/yodkwtf',
+    url: 'https://www.youtube.com/@SheikhAbdullah_',
     title: 'YouTube',
   },
   {
     id: 4,
     icon: linkedin,
-    url: 'https://www.linkedin.com/in/durgesh-chaudhary',
+    url: 'https://www.linkedin.com/in/sheikh-abdullah-b49378280/',
     title: 'LinkedIn',
   },
   {
     id: 5,
     icon: github,
-    url: 'https://github.com/yodkwtf',
+    url: 'https://github.com/sheikhabdullahahmed',
     title: 'GitHub',
   }
 ]

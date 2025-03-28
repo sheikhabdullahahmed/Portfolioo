@@ -9,7 +9,6 @@ export const Navbar: React.FC = () => {
   const { scrolled, openSidebar } = useAppContext();
 
   return (
-    // <nav className={`navbar ${scrolled ? "nav-fixed" : ""}`}>
     <nav className={`${scrolled ? 'nav-fixed' : ''}`}>
       <div className="nav-center">
         <div className="nav-header">

@@ -15,7 +15,7 @@ export const Contact = () => {
             Have a project you'd like to discuss? Just leave me a message and
             I'll get back to you within 24 hours.
           </p>
-          <Link to="/contact" className="btn hero-btn">
+          <Link to="/contactpage" className="btn hero-btn">
             send details <FaRocket className="fa" />
           </Link>
         </article>

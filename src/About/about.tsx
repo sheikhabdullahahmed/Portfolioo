@@ -42,7 +42,7 @@ export const About: React.FC = () => {
             I'm <strong>Sheikh Abdullah</strong>, a <span>{age}</span> year old
             <strong> Mern Stack Developer</strong> with 1+ years of experience.
             I work with Javascript and its endless list of frameworks, primarily
-            with <strong>React.js</strong>, <strong>Next.js</strong>, <br />
+            with <strong>React.js</strong>, <strong>Next.js</strong><strong>Node.js</strong>,<strong>Mongo db</strong> <br />
             <br />
             I enjoy turning ideas into reality through clean code and modern
             UI/UX principles. Whether it's crafting interactive web apps or

@@ -2,6 +2,7 @@ import heroImg from "../../Images/hero/hero-img.svg";
 import { FaCode, FaEnvelope } from "react-icons/fa";
 import { useAppContext } from "../../Context";
 
+
 export const Hero = () => {
   const { smoothScroll } = useAppContext();
 
@@ -15,10 +16,10 @@ export const Hero = () => {
               hey,<span> i'm Abdullah </span>
             </h1>
             <p>
-              I am a skilled Frontend Developer proficient in HTML, CSS,
-              JavaScript, and React, focused on creating responsive and visually
-              appealing websites. I strive to deliver seamless user experiences
-              with clean,
+              I am a skilled MERN Stack Developer proficient in MongoDB,
+              Express, React, and Node.js. I specialize in building full-stack
+              web applications with a focus on performance, scalability, and
+              user experience
             </p>
             <div className="hero-btn-container">
               <a
