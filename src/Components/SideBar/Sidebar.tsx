@@ -2,7 +2,6 @@ import React from "react";
 import { FaTimes } from "react-icons/fa";
 import { useAppContext } from "../../Context"; 
 import NavLinks from "../Navbar/NavbarLinks";
-import ToggleTheme from "../ToggleTheme/Toggle";
 import Logo from "../Logo/Logo";
 
 export const Sidebar: React.FC = () => {
@@ -13,7 +12,6 @@ export const Sidebar: React.FC = () => {
       <div className="sidebar-header">
         <div className="sidebar-header-col">
           <Logo />
-          <ToggleTheme />
         </div>
         <button className="close-btn" onClick={closeSidebar}>
           <FaTimes />
