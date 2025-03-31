@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaArrowUp } from "react-icons/fa"// Importing the icon
 
 export const ScrollButto = () => {
