@@ -1,19 +1,19 @@
-import { FaTimes } from 'react-icons/fa';
-import { useAppContext } from '../../Context';
-import NavLinks from '../Navbar/NavbarLinks';
-import Logo from '../Logo/Logo';
+import React from "react";
+import { FaTimes } from "react-icons/fa";
+import { useAppContext } from "../../Context"; 
+import NavLinks from "../Navbar/NavbarLinks";
+import ToggleTheme from "../ToggleTheme/Toggle";
+import Logo from "../Logo/Logo";
 
-export const Sidebar = () => {
-  // function from context
-    const { isSidebarOpen, closeSidebar } = useAppContext();
+export const Sidebar: React.FC = () => {
+  const { isSidebarOpen, closeSidebar } = useAppContext();
 
-  // jsx
   return (
-    <aside className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
-      {/* sidebar-header */}
+    <aside className={`${isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}`}>
       <div className="sidebar-header">
         <div className="sidebar-header-col">
           <Logo />
+          <ToggleTheme />
         </div>
         <button className="close-btn" onClick={closeSidebar}>
           <FaTimes />
@@ -21,9 +21,8 @@ export const Sidebar = () => {
       </div>
       <hr />
 
-      {/* sidebar-links */}
-      <ul className="sidebar-links">
-        <NavLinks />
+      <ul id="sidebar-links">
+        <NavLinks closeSidebar={closeSidebar} />
       </ul>
     </aside>
   );

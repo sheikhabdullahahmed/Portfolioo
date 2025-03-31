@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Contact2 from './pages/Contact';
 import { Footer } from './Components/Footer/Footer';
+import { ScrollButto } from './ScrollButton';
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
 
       </Routes>
         {/* <Contact/> */}
+
         <Footer/>
+        <ScrollButto/>
     </Router>
   );
 }

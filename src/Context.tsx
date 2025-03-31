@@ -1,4 +1,4 @@
-import React, { createContext, useState,  ReactNode, useContext } from 'react';
+import React, { createContext, useState, ReactNode, useContext } from "react";
 
 // Define context types
 interface AppContextType {
@@ -11,8 +11,19 @@ interface AppContextType {
   closeSidebar: () => void;
 }
 
-// Create context with default values
-export const AppContext = createContext<AppContextType | undefined>(undefined);
+// ✅ Default values (to prevent undefined issue)
+const defaultContextValue: AppContextType = {
+  scrolled: false,
+  isSidebarOpen: false,
+  openSidebar: () => {},
+  closeSidebar: () => {},
+  theme: "light",
+  switchTheme: () => {},
+  smoothScroll: () => {},
+};
+
+// ✅ Create context with default values
+export const AppContext = createContext<AppContextType>(defaultContextValue);
 
 // Provider component
 interface AppProviderProps {
@@ -20,35 +31,36 @@ interface AppProviderProps {
 }
 
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
-  const [scrolled] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [theme, setTheme] = useState<string>('light');
+  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+  const [theme, setTheme] = useState<string>("light");
 
   // Function to toggle theme
-  const switchTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  const switchTheme = (): void => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
   // Function to open sidebar
-  const openSidebar = () => {
+  const openSidebar = (): void => {
     setIsSidebarOpen(true);
   };
-  
-  const closeSidebar = () => {
+
+  // Function to close sidebar
+  const closeSidebar = (): void => {
     setIsSidebarOpen(false);
   };
 
-  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void => {
     e.preventDefault();
     const targetId = e.currentTarget.getAttribute("href")?.replace("#", "");
     const targetElement = targetId ? document.getElementById(targetId) : null;
-  
+
     if (!targetElement) return;
-  
+
     const offset = 50;
     const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
     const offsetPosition = elementPosition - offset;
-  
+
     if ("scrollBehavior" in document.documentElement.style) {
       // Modern browsers
       window.scrollTo({
@@ -62,25 +74,23 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ 
-      scrolled, 
-      isSidebarOpen, 
-      openSidebar, 
-      closeSidebar, 
-      theme, 
-      switchTheme, 
-      smoothScroll 
-    }}>
+    <AppContext.Provider
+      value={{
+        scrolled,
+        isSidebarOpen,
+        openSidebar,
+        closeSidebar,
+        theme,
+        switchTheme,
+        smoothScroll,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );
-}; 
+};
 
-
+// ✅ Custom hook (No more undefined error)
 export const useAppContext = (): AppContextType => {
-  const context = useContext(AppContext);
-  if (!context) {
-    throw new Error('useAppContext must be used within an AppProvider');
-  }
-  return context;
+  return useContext(AppContext);
 };

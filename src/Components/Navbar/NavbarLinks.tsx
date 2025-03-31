@@ -1,22 +1,28 @@
-import { navLinks } from '../../Data/utiles'
-import { useAppContext } from '../../Context';
+import React from "react";
+import { navLinks } from "../../Data/utiles";
 
-const NavLinks = () => {
-  
-  const { smoothScroll } = useAppContext();
+// ✅ Interface to define prop types
+interface NavLinksProps {
+  closeSidebar?: () => void; // ✅ closeSidebar is optional
+}
 
-  // jsx
+const NavLinks: React.FC<NavLinksProps> = ({ closeSidebar }) => {
   return (
     <>
-      {navLinks.map(({ id, url, text }) => {
-        return (
-          <li key={id}>
-            <a href={url} className="link" onClick={(e) => smoothScroll(e)}>
-              {text}
-            </a>
-          </li>
-        );
-      })}
+      {navLinks.map((link) => (
+        <li key={link.id}>
+          <a
+            href={link.url}
+            onClick={(e) => {
+              e.preventDefault();
+              if (closeSidebar) closeSidebar(); // ✅ Sidebar will close on click
+              document.querySelector(link.url)?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            {link.text}
+          </a>
+        </li>
+      ))}
     </>
   );
 };
