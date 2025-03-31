@@ -1,4 +1,4 @@
-import React, { createContext, useState, ReactNode, useContext } from "react";
+import React, { createContext, useState, ReactNode, useContext, useEffect } from "react";
 
 // Define context types
 interface AppContextType {
@@ -31,9 +31,9 @@ interface AppProviderProps {
 }
 
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
-  const [scrolled, setScrolled] = useState<boolean>(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
   const [theme, setTheme] = useState<string>("light");
+  const [scrolled, setScrolled] = useState<boolean>(false); // ✅ Added scrolled state
 
   // Function to toggle theme
   const switchTheme = (): void => {
@@ -61,17 +61,23 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
     const offsetPosition = elementPosition - offset;
 
-    if ("scrollBehavior" in document.documentElement.style) {
-      // Modern browsers
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    } else {
-      // Fallback for older browsers
-      window.scrollTo(0, offsetPosition);
-    }
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
   };
+
+  // ✅ Detect scroll event
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <AppContext.Provider
