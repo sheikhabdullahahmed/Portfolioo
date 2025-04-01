@@ -42,7 +42,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 
   // Function to open sidebar
   const openSidebar = (): void => {
-    setIsSidebarOpen(true);
+    setIsSidebarOpen(true); 
   };
 
   // Function to close sidebar
