@@ -32,8 +32,8 @@ interface AppProviderProps {
 
 export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
-  const [theme, setTheme] = useState<string>("light");
-  const [scrolled, setScrolled] = useState<boolean>(false); // ✅ Added scrolled state
+  const [theme, setTheme] = useState<string>("dark");
+  const [scrolled, setScrolled] = useState<boolean>(false); 
 
   // Function to toggle theme
   const switchTheme = (): void => {

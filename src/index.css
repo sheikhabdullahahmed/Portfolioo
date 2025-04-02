@@ -598,10 +598,13 @@ SIDEBAR
 
 #sidebar-links a {
   text-decoration: none;
-  color: #ecf0f1; /* Light color for links */
+  color: var(--clr-primary);
+  letter-spacing: -1px;
+  transition: var(--transition);
+  font-weight: bold;
   display: block;
   padding: 0.75rem 1rem;
-  font-size: 1.25rem;
+  font-size: 1.34rem;
   letter-spacing: 1px;
   transition: all 0.3s ease; /* Smooth transition for hover */
 }

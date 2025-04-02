@@ -6,6 +6,7 @@ import Logo from "../Logo/Logo";
 
 export const Sidebar: React.FC = () => {
   const { isSidebarOpen, closeSidebar } = useAppContext();
+  // const [isOpen, setOpen] = useState(false)
 
   return (
     <aside className={`${isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}`}>
@@ -13,12 +14,12 @@ export const Sidebar: React.FC = () => {
         <div className="sidebar-header-col">
           <Logo />
         </div>
-        <button className="close-btn" onClick={closeSidebar}>
+        {/* <button className="close-btn" onClick={closeSidebar}>
           <FaTimes />
-        </button>
+        </button> */}
       </div>
       <hr />
-
+      
       <ul id="sidebar-links">
         <NavLinks closeSidebar={closeSidebar} />
       </ul>
