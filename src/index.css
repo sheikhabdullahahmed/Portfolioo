@@ -609,6 +609,26 @@ SIDEBAR
   transition: all 0.3s ease; /* Smooth transition for hover */
 }
 
+
+/* By default, Hamburger will be visible */
+.hamburger-container {
+  display: block;
+  padding-right:13px ;
+}
+
+/* Hide Hamburger on larger screens (desktop view) */
+@media (min-width: 768px) {
+  .hamburger-container {
+    display: none;
+  }
+}
+.hmburger-close {
+  display: block;
+  padding-right: 13px;
+}
+
+/* Show NavLinks only on desktop */
+
 #sidebar-links a:hover {
   background-color: #3498db; /* Blue hover effect */
   padding-left: 1.5rem; /* Adding padding effect on hover */

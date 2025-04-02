@@ -1,9 +1,13 @@
+import { NavForPages } from "../Components/Navbar/NavbarforPage";
 
 
 function Contact() {
   return (
-    <div>Contact</div>
-  )
+    <div>
+      <NavForPages/>
+      <div>🔧 This page is under construction. Please check back later!</div>
+    </div>
+  );
 }
 
-export default Contact
+export default Contact;

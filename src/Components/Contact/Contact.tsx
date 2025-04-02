@@ -3,7 +3,7 @@ import { FaRocket } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import SocialIcons from '../SocialIcons/SocialIcosn';
 
-export const Contact = () => {
+export const ContactPage = () => {
   // jsx
   return (
     <div className="contact" id="contact">

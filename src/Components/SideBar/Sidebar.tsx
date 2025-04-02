@@ -1,12 +1,11 @@
 import React from "react";
-import { FaTimes } from "react-icons/fa";
+import { Pivot as Hamburger } from "hamburger-react";
 import { useAppContext } from "../../Context"; 
 import NavLinks from "../Navbar/NavbarLinks";
 import Logo from "../Logo/Logo";
 
 export const Sidebar: React.FC = () => {
   const { isSidebarOpen, closeSidebar } = useAppContext();
-  // const [isOpen, setOpen] = useState(false)
 
   return (
     <aside className={`${isSidebarOpen ? "sidebar show-sidebar" : "sidebar"}`}>
@@ -14,12 +13,18 @@ export const Sidebar: React.FC = () => {
         <div className="sidebar-header-col">
           <Logo />
         </div>
-        {/* <button className="close-btn" onClick={closeSidebar}>
-          <FaTimes />
-        </button> */}
+        {/* Sidebar Close Button */}
+        <div className="hmburger-close">
+        <Hamburger
+          size={20}
+          direction="right"
+          duration={0.8}
+          toggled={isSidebarOpen}
+          toggle={closeSidebar} // This will close the sidebar
+        />
+        </div>
       </div>
       <hr />
-      
       <ul id="sidebar-links">
         <NavLinks closeSidebar={closeSidebar} />
       </ul>

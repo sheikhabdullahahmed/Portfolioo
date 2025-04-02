@@ -3,6 +3,8 @@ import Home from './pages/Home';
 import Contact2 from './pages/Contact';
 import { Footer } from './Components/Footer/Footer';
 import { ScrollButto } from './ScrollButton';
+// import { Contact } from './Components/Contact/Contact';
+// import { Navbar } from './Components/Navbar/Navbarl';
 
 function App() {
   return (
