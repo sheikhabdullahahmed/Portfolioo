@@ -1,7 +1,7 @@
 import heroImg from "../../Images/hero/hero-img.svg";
 import { FaCode, FaEnvelope } from "react-icons/fa";
 import { useAppContext } from "../../Context";
-
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   const { smoothScroll } = useAppContext();
@@ -22,14 +22,13 @@ export const Hero = () => {
               user experience
             </p>
             <div className="hero-btn-container">
-              <a
-                href="#projects"
+              <Link
+                to="/projectpage"
                 className="btn hero-btn"
-                onClick={(e) => smoothScroll(e)}
                 title="My Latest Works"
               >
-                projects <FaCode className="fa" />
-              </a>
+                Projects <FaCode className="fa" />
+              </Link>
               <a
                 href="mailto:abdullahsheikh456677@gmail.com"
                 className="btn hero-btn"

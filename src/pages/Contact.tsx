@@ -25,6 +25,7 @@ const Input = MaterialInput as unknown as React.FC<{
   size?: "md" | "lg";
   placeholder?: string;
   name?: string;
+  type?: string;
   className?: string;
   containerProps?: object;
   labelProps?: object;
@@ -46,10 +47,7 @@ const Typography = MaterialTypography as unknown as React.FC<
   }>
 >;
 
-const containerStyle = {
-  width: "100%",
-  height: "400px",
-};
+
 
 export function ContactSection14() {
   const handleSubmit = (e: { preventDefault: () => void }) => {
@@ -93,12 +91,11 @@ export function ContactSection14() {
             Customer Care
           </Typography>
           <Typography variant="h1" className="contact-title">
-            We're Here to Help
+            Need a Developer?
           </Typography>
           <Typography className="contact-description">
-            Whether it's a question about our services, a request for technical
-            assistance, or suggestions for improvement, our team is eager to
-            hear from you.
+            Have a project in mind, or just want to say hi? I’d love to hear
+            from you. Let’s build something great together.
           </Typography>
           <div className="contact-grid">
             {/* Replace GoogleMap with Leaflet Map */}
@@ -131,7 +128,6 @@ export function ContactSection14() {
                   <Input
                     color="gray"
                     size="lg"
-                    placeholder="First Name"
                     name="first-name"
                     className="form-input"
                     containerProps={{ className: "input-container" }}
@@ -145,7 +141,6 @@ export function ContactSection14() {
                   <Input
                     color="gray"
                     size="lg"
-                    placeholder="Last Name"
                     name="last-name"
                     className="form-input"
                     containerProps={{ className: "input-container" }}
@@ -153,39 +148,34 @@ export function ContactSection14() {
                   />
                 </div>
                 <div className="form-group">
-                <Typography variant="small" className="form-label">
-                  Your Email
-                </Typography>
-                <Input
-                  color="gray"
-                  size="lg"
-                  placeholder="name@email.com"
-                  name="email"
-                  className="form-input"
-                  containerProps={{ className: "input-container" }}
-                  labelProps={{ className: "hidden" }}
-                />
-                
+                  <Typography variant="small" className="form-label">
+                    Your Email
+                  </Typography>
+                  <Input
+                    color="gray"
+                    size="lg"
+                    name="email"
+                    className="form-input"
+                    containerProps={{ className: "input-container" }}
+                    labelProps={{ className: "hidden" }}
+                  />
+                </div>
+                <div className="form-group">
+                  <Typography variant="small" className="form-label">
+                    Your Password
+                  </Typography>
+                  <Input
+                    color="gray"
+                    size="lg"
+                    name="password" // Changed from "email" to "password" to match the label
+                    type="password" // Added type for security
+                    className="form-input"
+                    containerProps={{ className: "input-container" }}
+                    labelProps={{ className: "hidden" }}
+                  />
+                </div>
               </div>
-              <div className="form-group">
-                <Typography variant="small" className="form-label">
-                  Your Email
-                </Typography>
-                <Input
-                  color="gray"
-                  size="lg"
-                  placeholder="name@email.com"
-                  name="email"
-                  className="form-input"
-                  containerProps={{ className: "input-container" }}
-                  labelProps={{ className: "hidden" }}
-                />
-                
-              </div>
-              </div>
-              
 
-              
               <div className="form-group">
                 <Typography variant="small" className="form-label">
                   Your Message
@@ -193,8 +183,7 @@ export function ContactSection14() {
                 <Textarea
                   rows={6}
                   color="gray"
-                  placeholder="Message"
-                  name="message"
+                  name="Message"
                   className="form-textarea"
                   containerProps={{ className: "input-container" }}
                   labelProps={{ className: "hidden" }}
