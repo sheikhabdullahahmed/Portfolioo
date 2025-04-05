@@ -1,10 +1,8 @@
 import heroImg from "../../Images/hero/hero-img.svg";
 import { FaCode, FaEnvelope } from "react-icons/fa";
-import { useAppContext } from "../../Context";
 import { Link } from "react-router-dom";
 
 export const Hero = () => {
-  const { smoothScroll } = useAppContext();
 
   return (
     <header id="home">
