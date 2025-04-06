@@ -11,7 +11,7 @@ export const Hero = () => {
           {/* hero-info */}
           <article className="hero-info">
             <h1 id="my-name">
-              hey,<span> i'm Abdullah </span>
+              hey,<span> i'm Sheikh Abdullah </span>
             </h1>
             <p>
               I am a skilled MERN Stack Developer proficient in MongoDB,

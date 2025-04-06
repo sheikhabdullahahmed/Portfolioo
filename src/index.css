@@ -385,10 +385,13 @@ nav {
 
 .nav-links {
   display: none;
-  /* display: flex !important; */
   width: 100%;
   max-width: 450px;
   padding: 0 1rem;
+}
+
+.nav-color {
+  color: #008037;
 }
 
 @media screen and (min-width: 900px) {
@@ -409,7 +412,6 @@ nav {
     align-items: center;
     margin-right: 4rem;
     text-transform: uppercase;
-    color: green; /* Changed text color to green */
     font-weight: bold;
     text-shadow: 1px 1px 1px var(--clr-body-bcg);
     transition: var(--transition);
@@ -496,7 +498,7 @@ SIDEBAR
 /* By default, Hamburger will be visible */
 .hamburger-container {
   display: block;
-  padding-right: 13px;
+  padding-right: 8px;
 }
 
 @media (min-width: 900px) {
@@ -602,10 +604,6 @@ header {
   font-family: var(--ff-primary);
 }
 
-#my-name span {
-  color: var(--clr-primary);
-  text-shadow: 1px 1px 1px var(--clr-font);
-}
 .hero-btn-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -659,28 +657,110 @@ header {
 }
 
 .hero-btn .fa {
-  margin-left: 0.5rem; /* Add space between text and icon */
+  margin-left: 0.5rem;
+  /* Add space between text and icon */
+}
+
+
+
+#my-name span {
+  color: var(--clr-primary);
+  text-shadow: 1px 1px 1px var(--clr-font);
 }
 
 #my-name {
   margin: 0 auto;
-  width: 100%; /* Make it more responsive */
-  max-width: 600px; /* Increased max-width for larger text */
+  width: 100%;
+  max-width: 700px;
   white-space: nowrap;
   opacity: 0;
-  line-height: 1.8; /* Increased line height for better readability */
-  font-size: 2rem; /* Increased font size */
-  font-weight: 800; /* Make text more prominent */
-  animation: type 5s steps(20, end) 1, blink 0.95s step-end;
-  animation-fill-mode: forwards;
-  border-right: 3px solid var(--clr-font); /* Slightly thicker border */
+  padding-bottom: 2px;
+  font-size: 3rem;
+  line-height: 1.8;
+  font-weight: 800;
+  animation: type 5s steps(20, end) forwards, blink 5s infinite;
+  border-right: 3px solid var(--clr-font);
   overflow-x: hidden;
+} 
+
+@media screen and (min-width: 768px) {
+  #my-name {
+    font-size: clamp(2rem, 3.5vw, 2.6rem); 
+    max-width: 540px; 
+  }
 }
+
+/* Medium screens (600px and below) */
+@media screen and (max-width: 600px) {
+  #my-name {
+    font-size: 2.1rem; /* Scales down from 2rem */
+    width: 90%; /* Slightly less than full width */
+    max-width: 100%; /* Fits container */
+  }
+}
+
+/* Small screens (548px and below) */
+@media screen and (max-width: 548px) {
+  #my-name {
+    font-size: 1.8rem;
+    /* background-color: #008037; */
+    width: 85%; /* Narrower for mobile */
+    max-width: 100%;
+  }
+}
+
+/* Extra small screens (400px and below) */
+@media screen and (max-width: 400px) {
+  #my-name {
+    font-size: 1.3rem;
+    width: 80%; /* Even narrower */
+    max-width: 100%;
+    margin-right: 0; /* Reset margin-right, no need for 3px */
+    /* background-color: green; */
+  }
+}
+
+@keyframes type {
+  from {
+    width: 0;
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
+@keyframes blink {
+  50% {
+    border-color:transparent;
+  }
+} 
+
 
 #name {
   font-weight: 600;
   font-size: 2rem;
 }
+@media screen and (max-width: 548px) {
+  .hero-btn {
+    font-size: 0.75rem;
+  }
+  
+}
+
 
 .scroll-widget {
   position: fixed;
@@ -704,28 +784,19 @@ header {
 /* Media Queries */
 
 @media screen and (min-width: 768px) {
-  #my-name {
-    font-size: 2.6rem;
-    max-width: 520px;
-    font-weight: bold;
-  }
 
   .hero-btn-container {
     column-gap: 2rem;
   }
 }
 
+
+
 @media screen and (max-width: 548px) {
   .hero-btn {
     font-size: 0.75rem;
   }
-
-  #my-name {
-    font-size: 2.3rem;
-    font-weight: bold;
-    /* background-color: wheat; */
-    width: 350px;
-  }
+  
 }
 
 @media screen and (min-width: 768px) {
@@ -744,6 +815,7 @@ header {
 @media screen and (max-width: 500px) {
   #name {
     font-size: 1.6rem;
+    max-width: 100%;
     /* background-color: red; */
   }
 }
@@ -751,45 +823,12 @@ header {
 @media screen and (max-width: 400px) {
   #name {
     font-size: 1.5rem;
-    /* background-color: pink; */
+    max-width: 100%;
+
   }
 }
 
-@keyframes type {
-  0% {
-    width: 0;
-  }
-  1% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
-@keyframes blink {
-  15% {
-    border-color: transparent;
-  }
-  30% {
-    border-color: var(--clr-font);
-  }
-  45% {
-    border-color: transparent;
-  }
-  60% {
-    border-color: var(--clr-font);
-  }
-  75% {
-    border-color: transparent;
-  }
-  90% {
-    border-color: var(--clr-font);
-  }
-  100% {
-    border-color: transparent;
-  }
-}
 
 @media screen and (min-width: 992px) {
   .banner-container {

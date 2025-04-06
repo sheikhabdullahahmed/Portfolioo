@@ -11,7 +11,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ closeSidebar }) => {
     <>
       {navLinks.map((link) => (
         <li key={link.id}>
-          <a
+          <a className="nav-color"
             href={link.url}
             onClick={(e) => {
               e.preventDefault();
