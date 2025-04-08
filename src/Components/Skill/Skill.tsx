@@ -1,6 +1,17 @@
+import React from 'react';
 import { skills } from '../../Data/data';
 
-export const Skills = () => {
+// Define the type for each skill
+interface Skill {
+  id: number;
+  title: string;
+  icon: string;
+}
+
+// Explicitly define the type of skills array
+const skillsArray: Skill[] = skills;
+
+export const Skills: React.FC = () => {
   return (
     <>
       <div className="skills-title-container">
@@ -10,7 +21,7 @@ export const Skills = () => {
 
       {/* skills-center */}
       <div className="skills-center">
-        {skills.map(({ id, title, icon }) => {
+        {skillsArray.map(({ id, title, icon }) => {
           return (
             <article key={id} className="skill" title={title}>
               <img src={icon} alt={title} className="skill-icon" />
