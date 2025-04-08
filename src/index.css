@@ -237,6 +237,21 @@ p {
   }
 }
 
+
+
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Move the image back to its original position */
+  }
+}
+
 /* section */
 
 .section {
@@ -244,7 +259,7 @@ p {
 }
 
 .section-center {
-  padding: rem 0;
+  padding: 1rem 0;
   width: 90vw;
   margin: 0 auto;
   max-width: var(--max-width);
@@ -591,23 +606,10 @@ header {
   transform: translateY(20px); /* Initially position the image 20px lower */
   animation: fadeInUp 1s ease-out forwards; /* Apply animation */
 }
-
-/* When .hero-img is shown (on larger screens, for example), add animation */
 .hero-img.show {
   display: block;
 }
 
-/* Define the fadeInUp animation */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0); /* Move the image back to its original position */
-  }
-}
 
 .hero-image {
   width: 25rem;
@@ -693,12 +695,12 @@ header {
   width: 100%;
   max-width: 700px;
   white-space: nowrap;
-  /* opacity: 0; */
+  opacity: 0;
   padding-bottom: 2px;
   font-size: 3rem;
   line-height: 1.8;
   font-weight: 800;
-  animation: type 5s steps(20, end) forwards, blink 5s infinite;
+  animation: type 8s steps(20, end) forwards, blink 8s infinite;
   overflow-x: hidden;
 } 
 
@@ -731,13 +733,15 @@ header {
 /* Extra small screens (400px and below) */
 @media screen and (max-width: 400px) {
   #my-name {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     width: 80%; /* Even narrower */
     max-width: 100%;
     margin-right: 0; /* Reset margin-right, no need for 3px */
     /* background-color: green; */
   }
 }
+
+
 
 @keyframes type {
   0% {
@@ -758,24 +762,6 @@ header {
   }
 }
 
-
-
-
-@keyframes fadeSlide {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-} 
-@keyframes blink {
-  50% {
-    border-color:black;
-  }
-}  
 
 
 #name {
@@ -1143,9 +1129,6 @@ FOOTER
   line-height: 1.25;
   margin: 0.5rem 0;
 }
-.footer-para {
-  padding-bottom:   2px;
-} 
 
 .footer a {
   transition: var(--transition);
@@ -1207,11 +1190,6 @@ FOOTER
     gap: 0.8rem;
   }
 }
-
-
-
-/* my name class  */
-
 
 /* Contact Section Styles */
 .contact-section {
@@ -1562,3 +1540,30 @@ FOOTER
 
 
 
+.loading-alert {
+  display: flex; /* Flexbox use karenge */
+  flex-direction: column; /* Items ko vertically stack karenge */
+  justify-content: center; /* Vertically center */
+  align-items: center; /* Horizontally center */
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  color: #333;
+  min-height: 100px; /* Optional: thodi height de sakte hain */
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ccc;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-top: 10px; /* Text aur spinner ke beech thodi space */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
