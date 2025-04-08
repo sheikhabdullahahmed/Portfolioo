@@ -1,22 +1,22 @@
 import react from "../../Skills/react.svg";
-import logo from '../../Images/logo.png';
+import logo from "../../Images/logo.png";
 
 export const Footer = () => {
-
   // jsx
   return (
     <footer id="footer" className="footer">
       <div className="section-center">
-        <p className="footer-text">
-          Find an issue with this page?{' '}
+        <p className="footer-para">
+          {`Find the source code of this website on `}
           <a
             href="https://github.com/sheikhabdullahahmed"
             target="_blank"
             rel="noreferrer"
-            title="Full Source Code"
+            title="View the full source code on GitHub"
           >
-            Fix it on GitHub
+            GitHub
           </a>
+          .
         </p>
 
         {/* <p>Copyright &copy; {date}. All Rights Reserved.</p> */}
@@ -24,18 +24,18 @@ export const Footer = () => {
         <p className="footer-text-2">
           Created with&nbsp;
           <span className="footer-img-block">
-            <img src={react} alt="react-js" className="footer-img" />
+            <img src={react} alt="React.js" className="footer-img" />
             &nbsp;
-            <img src={logo} alt="airtable" className="footer-img" />
+            <img src={logo} alt="Airtable" className="footer-img" />
           </span>
           &nbsp;by&nbsp;
           <a
-            href="https://twitter.com/Sheikh Abdullah"
+            href="https://twitter.com/SheikhAbdullah"
             target="_blank"
             rel="noreferrer"
-            title="My Twitter Account"
+            title="Follow me on Twitter"
           >
-                Sheikh Abdullah
+            Sheikh Abdullah
           </a>
         </p>
       </div>

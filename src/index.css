@@ -244,7 +244,7 @@ p {
 }
 
 .section-center {
-  padding: 1rem 0;
+  padding: rem 0;
   width: 90vw;
   margin: 0 auto;
   max-width: var(--max-width);
@@ -587,6 +587,26 @@ header {
 .hero-img {
   display: none; /* Hide on smaller screens by default */
   width: 25rem;
+  opacity: 0;
+  transform: translateY(20px); /* Initially position the image 20px lower */
+  animation: fadeInUp 1s ease-out forwards; /* Apply animation */
+}
+
+/* When .hero-img is shown (on larger screens, for example), add animation */
+.hero-img.show {
+  display: block;
+}
+
+/* Define the fadeInUp animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Move the image back to its original position */
+  }
 }
 
 .hero-image {
@@ -673,13 +693,12 @@ header {
   width: 100%;
   max-width: 700px;
   white-space: nowrap;
-  opacity: 0;
+  /* opacity: 0; */
   padding-bottom: 2px;
   font-size: 3rem;
   line-height: 1.8;
   font-weight: 800;
   animation: type 5s steps(20, end) forwards, blink 5s infinite;
-  border-right: 3px solid var(--clr-font);
   overflow-x: hidden;
 } 
 
@@ -712,7 +731,7 @@ header {
 /* Extra small screens (400px and below) */
 @media screen and (max-width: 400px) {
   #my-name {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     width: 80%; /* Even narrower */
     max-width: 100%;
     margin-right: 0; /* Reset margin-right, no need for 3px */
@@ -721,15 +740,24 @@ header {
 }
 
 @keyframes type {
-  from {
+  0% {
     width: 0;
-    opacity: 1;
+    opacity: 0;
+    /* Optional: you can use 'left' to control the starting position */
+    transform: translateX(0);
   }
-  to {
+  50% {
+    width: 50%;
+    opacity: 0.5;
+    transform: translateX(0); /* Optional: to keep the element in place */
+  }
+  100% {
     width: 100%;
     opacity: 1;
+    transform: translateX(0); /* Keep element in place */
   }
 }
+
 
 
 
@@ -745,9 +773,9 @@ header {
 } 
 @keyframes blink {
   50% {
-    border-color:transparent;
+    border-color:black;
   }
-} 
+}  
 
 
 #name {
@@ -1115,6 +1143,9 @@ FOOTER
   line-height: 1.25;
   margin: 0.5rem 0;
 }
+.footer-para {
+  padding-bottom:   2px;
+} 
 
 .footer a {
   transition: var(--transition);
@@ -1176,6 +1207,11 @@ FOOTER
     gap: 0.8rem;
   }
 }
+
+
+
+/* my name class  */
+
 
 /* Contact Section Styles */
 .contact-section {
@@ -1521,3 +1557,8 @@ FOOTER
   .project-desc { font-size: 0.9rem; }
   .project-link { padding: 0.5rem 1rem; }
 }
+
+
+
+
+

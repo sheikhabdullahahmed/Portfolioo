@@ -2,19 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { FaSun, FaMoon } from 'react-icons/fa';
 
 const ToggleTheme: React.FC = () => {
-  // Explicitly define the type for the state (either "light" or "dark")
-  const [theme, setTheme] = useState<"light" | "dark">(
-    typeof window !== "undefined" ? (localStorage.getItem("theme") as "light" | "dark" | null) || "light" : "light"
+  const [theme, setTheme] = useState(
+    typeof window !== "undefined" ? localStorage.getItem("theme") || "light" : "light"
   );
 
   useEffect(() => {
-    // Apply dark theme class to the document if the theme is dark
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
-    // Save the theme preference in localStorage
     localStorage.setItem("theme", theme);
   }, [theme]);
 

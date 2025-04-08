@@ -10,8 +10,8 @@ export const Hero = () => {
         <div className="banner-container section-center">
           {/* hero-info */}
           <article className="hero-info">
-            <h1 id="my-name">
-              hey,<span> i'm Sheikh Abdullah </span>
+            <h1  id="my-name">
+              hey,<span className="no-name"> i'm Sheikh Abdullah </span>
             </h1>
             <p>
               I am a skilled MERN Stack Developer proficient in MongoDB,
