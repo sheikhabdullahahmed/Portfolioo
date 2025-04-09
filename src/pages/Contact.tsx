@@ -79,7 +79,12 @@ export function ContactSection14() {
 
   // If user location is not fetched yet, show loading or placeholder map
   if (!userLocation) {
-    return <div>Loading map...</div>;
+    return (
+      <div className="loading-alert">
+        <p>Please wait while we load the map...</p>
+        <span className="spinner"></span>
+      </div>
+    );
   }
 
   return (
