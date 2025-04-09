@@ -681,7 +681,34 @@ header {
   /* Add space between text and icon */
 }
 
+.view-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid var(--clr-primary);
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease-out;
+  color: white;
+  background-color: #008037;
+}
 
+@media (max-width: 768px) {
+  .view-btn {
+    padding: 0.7rem 1.2rem; /* Adjust padding for medium screens */
+    font-size: 0.95rem; /* Slightly smaller font size for medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .view-btn {
+    padding: 0.6rem 1rem; /* Further reduce padding on smaller screens */
+    font-size: 0.9rem; /* Smaller font size on mobile devices */
+  }
+}
 
 #my-name span {
   color: var(--clr-primary);
@@ -700,12 +727,12 @@ header {
   font-weight: 800;
   animation: type 5s steps(20, end) forwards, blink 5s infinite;
   overflow-x: hidden;
-} 
+}
 
 @media screen and (min-width: 768px) {
   #my-name {
-    font-size: clamp(2rem, 3.5vw, 2.6rem); 
-    max-width: 540px; 
+    font-size: clamp(2rem, 3.5vw, 2.6rem);
+    max-width: 540px;
   }
 }
 
@@ -758,9 +785,6 @@ header {
   }
 }
 
-
-
-
 @keyframes fadeSlide {
   from {
     opacity: 0;
@@ -770,13 +794,12 @@ header {
     opacity: 1;
     transform: translateY(0);
   }
-} 
+}
 @keyframes blink {
   50% {
-    border-color:black;
+    border-color: black;
   }
-}  
-
+}
 
 #name {
   font-weight: 600;
@@ -786,9 +809,7 @@ header {
   .hero-btn {
     font-size: 0.75rem;
   }
-  
 }
-
 
 .scroll-widget {
   position: fixed;
@@ -812,19 +833,15 @@ header {
 /* Media Queries */
 
 @media screen and (min-width: 768px) {
-
   .hero-btn-container {
     column-gap: 2rem;
   }
 }
 
-
-
 @media screen and (max-width: 548px) {
   .hero-btn {
     font-size: 0.75rem;
   }
-  
 }
 
 @media screen and (min-width: 768px) {
@@ -852,11 +869,8 @@ header {
   #name {
     font-size: 1.5rem;
     max-width: 100%;
-
   }
 }
-
-
 
 @media screen and (min-width: 992px) {
   .banner-container {
@@ -1144,8 +1158,9 @@ FOOTER
   margin: 0.5rem 0;
 }
 .footer-para {
-  padding-bottom:   2px;
-} 
+  padding-bottom: 5px;
+  padding: 8px;
+}
 
 .footer a {
   transition: var(--transition);
@@ -1208,10 +1223,7 @@ FOOTER
   }
 }
 
-
-
 /* my name class  */
-
 
 /* Contact Section Styles */
 .contact-section {
@@ -1418,7 +1430,9 @@ FOOTER
 /* Projects.css */
 .projects-section {
   padding: 4rem 1rem;
-  background: linear-gradient(135deg, #f9f9f9, #e9ecef);
+  /* background: linear-gradient(135deg, #f9f9f9, #e9ecef); */
+  background: var(--contact-bcg);
+  font-family: var(--ff-tertiary);
 }
 
 .projects-container {
@@ -1429,8 +1443,8 @@ FOOTER
 .section-title {
   text-align: center;
   font-size: 2.5rem;
+  color: var(--clr-font);
   margin-bottom: 3rem;
-  color: #2c3e50;
   animation: fadeIn 1s ease-in;
 }
 
@@ -1446,9 +1460,11 @@ FOOTER
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: slideUp 0.6s ease-out forwards;
+  animation: slideUp 0.6s ease-out forwards, scaleUp 0.5s ease-in-out;
   opacity: 0;
-  animation-delay: calc(0.1s * attr(data-index number, 0));
+  animation-delay: calc(
+    0.1s * var(--index)
+  ); /* Animation delay using custom property */
 }
 
 .project-card:hover {
@@ -1501,7 +1517,7 @@ FOOTER
   font-size: 1.6rem;
   color: #2c3e50;
   margin-bottom: 0.5rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .project-desc {
@@ -1531,34 +1547,89 @@ FOOTER
 }
 
 /* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes scaleUp {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
+/* Card slide up animation */
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 /* Responsive Design */
 @media (max-width: 768px) {
-  .section-title { font-size: 2rem; }
-  .projects-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  .project-img { height: 180px; }
+  .section-title {
+    font-size: 2rem;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .project-img {
+    height: 180px;
+  }
 }
 
 @media (max-width: 480px) {
-  .section-title { font-size: 1.5rem; }
-  .projects-grid { gap: 1rem; }
-  .project-img { height: 150px; }
-  .project-info { padding: 1rem; }
-  .project-title { font-size: 1.3rem; }
-  .project-desc { font-size: 0.9rem; }
-  .project-link { padding: 0.5rem 1rem; }
+  .section-title {
+    font-size: 1.5rem;
+  }
+  .projects-grid {
+    gap: 1rem;
+  }
+  .project-img {
+    height: 150px;
+  }
+  .project-info {
+    padding: 1rem;
+  }
+  .project-title {
+    font-size: 1.7rem;
+  }
+  .project-desc {
+    font-size: 0.9rem;
+  }
+  .project-link {
+    padding: 0.5rem 1rem;
+  }
 }
 
+.section-titlee {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--clr-font);
+  margin-bottom: 3rem;
+  font-family: var(--ff-primary);
+  margin-bottom: 4rem;
+  text-transform: capitalize;
+  padding: 0 1rem;
+  font-weight: bolder;
+  text-shadow: 1px 1px 1px var(--clr-tertiary);
+  animation: fadeInUp 1s ease-out forwards; /* Apply the custom animation */
+}
 
-
-
+/* Fade In + Slide Up Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at the normal position */
+  }
+}
 
