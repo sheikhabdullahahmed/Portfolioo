@@ -768,26 +768,28 @@ header {
   }
 }
 
-
-
 @keyframes type {
   0% {
-    width: 0;
-    opacity: 0;
-    /* Optional: you can use 'left' to control the starting position */
-    transform: translateX(0);
+    width: 0; /* Start with no width */
+    opacity: 0; /* Start invisible */
+    margin-left: 50%; 
+
   }
   50% {
-    width: 50%;
+    width: 50%; /* Half of 375px for center effect */
     opacity: 0.5;
-    transform: translateX(0); /* Optional: to keep the element in place */
+    /* margin-left: 25%;  */
+
   }
   100% {
-    width: 100%;
+    width: 100%; /* Full width */
     opacity: 1;
-    transform: translateX(0); /* Keep element in place */
   }
 }
+
+   
+
+
 
 
 
