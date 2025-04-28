@@ -760,7 +760,7 @@ header {
 /* Extra small screens (400px and below) */
 @media screen and (max-width: 400px) {
   #my-name {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     width: 80%; /* Even narrower */
     max-width: 100%;
     margin-right: 0; /* Reset margin-right, no need for 3px */
@@ -1448,7 +1448,7 @@ FOOTER
 }
 
 .projects-container {
-  max-width: 1200px;
+  max-width: 1130px;
   margin: 0 auto;
 }
 
@@ -1618,6 +1618,9 @@ FOOTER
     padding: 0.5rem 1rem;
   }
 }
+
+
+
  
 .section-titlee {
   text-align: center;

@@ -1,17 +1,25 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { LatLngTuple } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet"; // Import Leaflet
 import {
   Button as MaterialButton,
   Input as MaterialInput,
   Textarea as MaterialTextarea,
   Typography as MaterialTypography,
 } from "@material-tailwind/react";
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavForPages } from "../Components/Navbar/NavbarforPage";
 
-// Workaround for TypeScript conflicts (same as your original code)
+// Fix default marker icon issue
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+});
+
+// TypeScript workaround for Material components
 const Button = MaterialButton as unknown as React.FC<
   React.PropsWithChildren<{
     variant?: "filled" | "outlined" | "gradient" | "text";
@@ -47,8 +55,6 @@ const Typography = MaterialTypography as unknown as React.FC<
   }>
 >;
 
-
-
 export function ContactSection14() {
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -57,27 +63,24 @@ export function ContactSection14() {
   const [userLocation, setUserLocation] = useState<LatLngTuple | null>(null);
 
   useEffect(() => {
-    // Check if geolocation is available
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
+          console.log("User Location:", [latitude, longitude]); // Debug log
           setUserLocation([latitude, longitude]);
         },
         (error) => {
           console.error("Error getting location: ", error);
-          // Fallback to a default location (e.g., Karachi)
           setUserLocation([24.8607, 67.0011]);
         }
       );
     } else {
-      // If geolocation is not supported, fallback to default location
       console.log("Geolocation is not supported by this browser.");
-      setUserLocation([24.8607, 67.0011]); // Default location
+      setUserLocation([24.8607, 67.0011]);
     }
   }, []);
 
-  // If user location is not fetched yet, show loading or placeholder map
   if (!userLocation) {
     return (
       <div className="loading-alert">
@@ -103,26 +106,27 @@ export function ContactSection14() {
             from you. Let’s build something great together.
           </Typography>
           <div className="contact-grid">
-            {/* Replace GoogleMap with Leaflet Map */}
-            <MapContainer
-              center={userLocation}
-              zoom={13}
-              scrollWheelZoom={false}
-              style={{
-                width: "100%",
-                height: "400px",
-                zIndex: 10,
-                position: "relative",
-              }}
-            >
-              <TileLayer
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-              />
-              <Marker position={userLocation}>
-                <Popup>This is My Location</Popup>
-              </Marker>
-            </MapContainer>
+            <div className="leaflet-container">
+              <MapContainer
+                center={userLocation}
+                zoom={13}
+                scrollWheelZoom={false}
+                style={{
+                  width: "100%",
+                  height: "400px",
+                  zIndex: 10, // Increased zIndex
+                  position: "relative",
+                }}
+              >
+                <TileLayer
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                />
+                <Marker position={userLocation}>
+                  <Popup>This is My Location</Popup>
+                </Marker>
+              </MapContainer>
+            </div>
 
             <form onSubmit={handleSubmit} className="contact-form">
               <div className="form-grid">
@@ -172,8 +176,8 @@ export function ContactSection14() {
                   <Input
                     color="gray"
                     size="lg"
-                    name="password" // Changed from "email" to "password" to match the label
-                    type="password" // Added type for security
+                    name="password"
+                    type="password"
                     className="form-input"
                     containerProps={{ className: "input-container" }}
                     labelProps={{ className: "hidden" }}
