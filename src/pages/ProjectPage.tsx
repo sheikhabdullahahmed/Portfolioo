@@ -7,7 +7,7 @@ const projectsData = [
     title: "Foodie Hub",
     description:
       "Your ultimate foodie destination, where every bite is an adventure in flavor.",
-    image: "/images/project1.jpg",
+    image: "https://cdn.dribbble.com/userupload/37697266/file/original-217c815720ae7beffc28b771879d7f81.jpg?format=webp&resize=400x300&vertical=center",
     link: "https://foodies-hub-teal.vercel.app/",
     category: "Food & Beverage", // Updated category to match the theme
     isFeatured: false,
@@ -17,7 +17,7 @@ const projectsData = [
     title: "GoldenGate Estates",
     description:
       "Helping you find your perfect home with ease – buy, rent, or invest.",
-    image: "/images/project2.jpg",
+    image: "https://www.gulfshorebusiness.com/wp-content/uploads/2023/03/SWFL_TLP_Stellar_Ext-FM3_web_lightened.jpg",
     link: "https://github.com/sheikhabdullahahmed/Agency-website",
     category: "Real Estate", // Set category as 'Real Estate'
     isFeatured: false,
@@ -27,8 +27,8 @@ const projectsData = [
     id: 3,
     title: "Docs App",
     description:
-      "Create, edit, and organize your documents effortlessly,  anywhere.",
-    image: "/images/project1.jpg",
+      "Create, edit, and organize your documents effortlessly,  anywhere, foreverywhere",
+    image: "https://forums.insynchq.com/uploads/default/optimized/2X/a/ad05b345b0e7f2e42e0f6d1ce9810b9413cfad31_2_690x409.png",
     link: "https://docs-app-tan.vercel.app",
     category: "Productivity", // Category set to 'Productivity' to match the app's function
     isFeatured: false,
@@ -38,7 +38,7 @@ const projectsData = [
     title: "Itecvo",
     description:
       "Boosting your brand with expert digital marketing, SEO, and social media strategies.",
-    image: "/images/project2.jpg",
+    image: "https://navicoads.com/wp-content/uploads/2024/12/how-to-choose-digital-marketing-agency-1024x576.png",
     link: "https://itechvo.vercel.app", // Added https:// for correct URL format
     category: "Marketing Agency", // Set category to 'Marketing Agency'
     isFeatured: false,
@@ -48,7 +48,7 @@ const projectsData = [
     title: "Furniture Shop",
     description:
       "Boosting your brand with expert digital marketing, SEO, and social media strategies.",
-    image: "/images/project2.jpg",
+    image: "https://imgix-prod.sgs.com/-/media/sgscorp/images/corporate/video-thumbnails/sgs-global-furniture.cdn.en-GB.1.jpg?fit=crop&auto=format&w=1504",
     link: "https://github.com/sheikhabdullahahmed/E-commerce-with-Typscript",
     category: "Furniture E-Commerce", // Set category to 'Furniture E-Commerce'
     isFeatured: false,
