@@ -88,7 +88,7 @@ export function ContactSection14() {
   }
 
   return (
-    <div>
+    <div> 
       <NavForPages />
       <section className="contact-section">
         <div className="contact-section-center">
