@@ -605,7 +605,30 @@ header {
   opacity: 0;
   transform: translateY(20px); /* Initially position the image 20px lower */
   animation: fadeInUp 1s ease-out forwards; /* Apply animation */
+
+  opacity: 0;
+  animation:
+    fadeIn 1s ease-out forwards,
+    float 4s ease-in-out 1s infinite;
+}  
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
+/* Continuous up-down floating */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+
+
 .hero-img.show {
   display: block;
 }
@@ -717,19 +740,49 @@ header {
   text-shadow: 1px 1px 1px var(--clr-font);
 }
 
-#my-name {
-  margin: 0 auto;
-  width: 100%;
+#my-name {  margin: 0 auto;
   max-width: 700px;
   white-space: nowrap;
+  overflow: hidden;
   opacity: 0;
-  padding-bottom: 2px;
+  /* transform: scale(0.95); */
   font-size: 3rem;
-  line-height: 1.8;
   font-weight: 800;
-  animation: type 8s steps(20, end) forwards, blink 8s infinite;
-  overflow-x: hidden;
+  padding-bottom: 2px;
+  animation:
+    fadeZoom    0.5s ease-out forwards,
+    typing      3s steps(30,end) 0.5s forwards,
+    letterSpace 0.5s ease-in-out 0.5s forwards,
+    blinkCursor 0.8s step-end infinite 3.5s,
+    floatText   5s ease-in-out infinite 5s;
 }
+
+  @keyframes fadeZoom {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+/* 2) Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes floatText {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1);
+  }
+}
+
 
 @media screen and (min-width: 768px) {
   #my-name {
